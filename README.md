@@ -26,3 +26,8 @@ You **WILL** be billed for Lambda execution (although, in this example, it's
 really not much). Pay attention to your billing. I can't be responsible if you
 rack up a billion dollars in charges by executing your lambda continuously for
 a year across 3000 instances.
+
+## Reference
+Many thanks to the following snippets for helping me figure this shiz out:
+* [Terraform API Gateway Bug: JefState](https://gist.github.com/JefStat/7db907e52566ce59c575881a7c7c3467)
+* [Writing a Facebook Messenger chatbot with AWS Lambda and Terraform by Matt Kimber](http://www.mattkimber.co.uk/writing-a-facebook-messenger-chatbot-with-aws-lambda-and-terraform/)
