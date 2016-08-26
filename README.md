@@ -7,7 +7,8 @@ You'll need an AWS account. You can do a lot of cool stuff with AWS. Go get one.
 
 [Homebrew](https://brew.sh) is a great way to install all the necessary
 dependencies. I recommend installing it, and I'll use that as the tool for
-installing the necessary dependencies. Once you've installed Homebrew,  
+installing the necessary dependencies. Once you've installed Homebrew,
+
 1. `brew install terraform`
 2. `brew install awscli`
 3. Run `aws configure` and enter your access key, secret access key, default
