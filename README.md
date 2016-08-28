@@ -1,6 +1,4 @@
-# api-gateway-starter
-This repo is a starter project for using Terraform to boot-strap a serverless
-endpoint backed by AWS Lambda and API Gateway.
+# Serverless Slackbot
 
 ## Before You Started
 You'll need an AWS account. You can do a lot of cool stuff with AWS. Go get one.
