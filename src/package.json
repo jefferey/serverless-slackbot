@@ -1,0 +1,29 @@
+{
+  "name": "serverless-slackbot",
+  "version": "0.1.0",
+  "description": "A serverless slackbot intended to be deployed on AWS lambda.",
+  "main": "simpleService.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhussmann/serverless-slackbot.git"
+  },
+  "author": "Ricky Hussmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhussmann/serverless-slackbot/issues"
+  },
+  "homepage": "https://github.com/rhussmann/serverless-slackbot#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "mockery": "^1.7.0",
+    "sinon": "^1.17.5"
+  },
+  "readme": "../README.md"
+}
