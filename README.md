@@ -12,12 +12,21 @@ installing the necessary dependencies. Once you've installed Homebrew,
 3. Run `aws configure` and enter your access key, secret access key, default
 region and default output (you can just go with the defaults for the last two)
 
-## Deploying
+## Initial Infrastructure Deployment
 1. `cd terraform`
 2. `terraform plan -out myPlanFile`
 3. `terraform apply myPlanFile`
 4. `aws apigateway get-rest-apis --query "items[?name == 'MyChatbotAPI'].id"`
 5. `curl -d "trigger_word=chatbot" -d "text=chatbot show services" https://<ID_FROM_PREVIOUS_STEP>.execute-api.us-east-1.amazonaws.com/test/mychatbotresource`
+
+## Testing
+1. `cd src`
+2. `npm install`
+3. `npm test`
+
+## Deploying New Lambda Versions
+1. `cd src`
+2. `gulp`
 
 ## Notes
 You **WILL** be billed for Lambda execution (although, in this example, it's
