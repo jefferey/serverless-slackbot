@@ -36,6 +36,9 @@ resource "aws_api_gateway_integration" "MyChatbotIntegration" {
   type = "AWS"
   # Correct format is
   # "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:140106038064:function:lambda_function_name/invocations"
+  request_templates = {
+    "application/x-www-form-urlencoded" = "${file("templates/integrationRequestTemplate.vtl")}"
+  }
   uri="arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${aws_lambda_function.test_lambda.arn}/invocations"
 }
 

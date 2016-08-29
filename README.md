@@ -17,7 +17,7 @@ region and default output (you can just go with the defaults for the last two)
 2. `terraform plan -out myPlanFile`
 3. `terraform apply myPlanFile`
 4. `aws apigateway get-rest-apis --query "items[?name == 'MyChatbotAPI'].id"`
-5. `curl -XPOST https://<ID_FROM_PREVIOUS_STEP>.execute-api.us-east-1.amazonaws.com/test/mychatbotresource`
+5. `curl -d "trigger_word=chatbot" -d "text=chatbot show services" https://<ID_FROM_PREVIOUS_STEP>.execute-api.us-east-1.amazonaws.com/test/mychatbotresource`
 
 ## Notes
 You **WILL** be billed for Lambda execution (although, in this example, it's
