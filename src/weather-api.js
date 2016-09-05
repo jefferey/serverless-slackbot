@@ -1,3 +1,7 @@
+const log = require('bunyan').createLogger({
+    name: 'weather-api'
+});
+
 const request = require('request');
 const BASE_URL = 'https://api.wunderground.com/api';
 
@@ -16,7 +20,7 @@ Api.getSatelliteImagery = (city, state, callback) => {
         if (body.response.error) {
           const error = body.response.error;
           const errMsg = error.type + ':' + error.description;
-          console.error(errMsg);
+          log.error('Error fetching satellite image', errMsg);
           return callback(new Error(errMsg));
         }
 

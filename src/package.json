@@ -30,6 +30,7 @@
   },
   "readme": "../README.md",
   "dependencies": {
+    "bunyan": "^1.8.1",
     "request": "^2.74.0"
   }
 }
