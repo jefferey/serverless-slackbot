@@ -29,5 +29,9 @@ exports.handler = (event, context, callback) => {
                   text: response.satelliteImageUrl
               });
         });
+    } else {
+        return callback(null, {
+            text: 'I don\'t know what to say to that.'
+        });
     }
 }

@@ -35,7 +35,7 @@ describe('The chatbot', function() {
             done();
         });
     });
-    it('should return error text on error', () => {
+    it('should return error text on error', (done) => {
         stub.yields(new Error('Boom'));
 
         const message = {
@@ -44,6 +44,17 @@ describe('The chatbot', function() {
         };
         chatbot.handler(message, {}, (err, response) => {
             expect(response.text).to.include('Sorry');
+            done();
+        });
+    });
+    it('should return a message when unable to parse', (done) => {
+        const message = {
+            trigger_word: 'chatbot',
+            text: 'chatbot'
+        };
+        chatbot.handler(message, {}, (err, response) => {
+            expect(response.text).to.include('I don\'t know what to say to that.')
+            done();
         });
     });
 });
