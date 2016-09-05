@@ -1,9 +1,9 @@
 const request = require('request');
-const BASE_URL = 'https://api.wunderground.com/api/API_KEY';
+const BASE_URL = 'https://api.wunderground.com/api';
 
 var Api = {};
 Api.getSatelliteImagery = (city, state, callback) => {
-    const satelliteImageUrl = `${BASE_URL}/satellite/q/${state}/${city}.json`;
+    const satelliteImageUrl = `${BASE_URL}/${Api.key}/satellite/q/${state}/${city}.json`;
     request({
         method: 'GET',
         uri: satelliteImageUrl,
@@ -11,6 +11,13 @@ Api.getSatelliteImagery = (city, state, callback) => {
     }, (err, response, body) => {
         if (err) {
             return callback(err);
+        }
+
+        if (body.response.error) {
+          const error = body.response.error;
+          const errMsg = error.type + ':' + error.description;
+          console.error(errMsg);
+          return callback(new Error(errMsg));
         }
 
         return callback(null, {

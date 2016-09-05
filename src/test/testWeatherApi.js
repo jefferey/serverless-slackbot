@@ -1,23 +1,43 @@
 'use strict';
 
 const expect = require('chai').expect;
-const should = require('chai').should();
 const mockery = require('mockery');
 const sinon = require('sinon');
 
+var api = null;
+const stub = sinon.stub();
 describe('Weather API integration', () => {
-    before(()  => {
-        mockery.enable();
-        mockery.registerMock('request', (options, callback) => {
-            return callback(null, {}, {satellite: {image_url: 'farts'}});
+    before(() => {
+        mockery.enable({
+            warnOnUnregistered: false
         });
+        mockery.registerMock('request', stub);
+        api = require('../weather-api.js')
     });
-    after(() => {
+    after(function () {
+        mockery.deregisterMock('request');
         mockery.disable();
     });
 
+    it('should propogate an error', (done) => {
+        stub.yields(new Error('Boom'));
+
+        api.getSatelliteImagery('BogusCity', 'BogusState', (err, response) => {
+            expect(err).not.to.be.null;
+            done();
+        });
+    });
+
     it('should return a URL when searching satellite imagery', (done) => {
-        const api = require('../weather-api.js');
+        stub.yields(null, null, {
+            response:  {
+
+            },
+            satellite: {
+                image_url: 'http://bogus.weathersite.com/satelliteimg.jpg'
+            }
+        });
+
         api.getSatelliteImagery('Morgantown', 'WV', (err, response) => {
             expect(err).to.be.null;
             expect(response.satelliteImageUrl).to.contain('http://bogus.weathersite.com');
