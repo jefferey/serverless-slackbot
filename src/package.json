@@ -28,5 +28,8 @@
     "mockery": "^1.7.0",
     "sinon": "^1.17.5"
   },
-  "readme": "../README.md"
+  "readme": "../README.md",
+  "dependencies": {
+    "request": "^2.74.0"
+  }
 }
