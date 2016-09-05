@@ -4,8 +4,12 @@ const log = require('bunyan').createLogger({
 
 const request = require('request');
 const BASE_URL = 'https://api.wunderground.com/api';
+const fs = require('fs');
+
+const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 
 var Api = {};
+Api.key = config.weatherApiKey;
 Api.getSatelliteImagery = (city, state, callback) => {
     const satelliteImageUrl = `${BASE_URL}/${Api.key}/satellite/q/${state}/${city}.json`;
     request({

@@ -1,5 +1,6 @@
 const api = require('./weather-api');
 const matchers = require('./weather-matchers');
+
 const log = require('bunyan').createLogger({
     name: 'simpleService',
     streams: [
