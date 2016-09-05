@@ -3,58 +3,35 @@ var mockery = require('mockery');
 var should = require('chai').should();
 var sinon = require('sinon');
 
+const stub = sinon.stub();
 describe('The chatbot', function() {
-  before(function () {
-    mockery.enable({
-      warnOnUnregistered: false
+    before(() => {
+        mockery.enable({
+            warnOnUnregistered: false,
+            useCleanCache: true
+        });
+        mockery.registerMock('request', stub);
     });
-    mockery.registerMock('aws-sdk', {
-      Lambda: function() {
-        return {
-          getFunction: function() {
-            return {
-              promise: function () {
-                return {
-                  then: function (handler) {
-                    handler({
-                      Configuration: {
-                        Runtime: 'nodejs4.3'
-                      }
-                    });
+    after(() => {
+        mockery.deregisterMock('request');
+        mockery.disable();
+    });
+    it('should return satellite imagery for Morgantown, WV', (done) => {
+        stub.yields(null, null, {
+            response: {},
+            satellite: {
+                image_url: 'http://bogus.image.com'
+            }
+        });
 
-                    return {
-                      catch: function () {}
-                    };
-                  }
-                }
-              }
-            };
-          }
+        const chatbot = require('../simpleService.js');
+        const message = {
+            trigger_word: 'chatbot',
+            text: 'chatbot: show satellite image for Morgantown, WV'
         };
-      },
-      Service: {
-        _serviceMap: ""
-      }
+        chatbot.handler(message, {}, (err, response) => {
+            expect(response.text).to.include('http://bogus.image.com');
+            done();
+        });
     });
-  });
-  after(function () {
-    mockery.deregisterMock('aws-sdk');
-    mockery.disable();
-  });
-
-  it('should return help information', function (done) {
-    var bot = require('../simpleService.js');
-    var incomingMessage = {
-      trigger_word: 'testbot',
-      text:'testbot help'
-    };
-    bot.handler(incomingMessage, {}, function(err, response) {
-      expect(err).to.be.null;
-      expect(response).to.exist;
-      expect(response.text).to.exist;
-      response.text.should.be.a('string');
-      response.text.should.contain('Available commands');
-      done();
-    });
-  });
 });

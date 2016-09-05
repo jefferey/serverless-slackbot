@@ -9,7 +9,8 @@ const stub = sinon.stub();
 describe('Weather API integration', () => {
     before(() => {
         mockery.enable({
-            warnOnUnregistered: false
+            warnOnUnregistered: false,
+            useCleanCache: true
         });
         mockery.registerMock('request', stub);
         api = require('../weather-api.js')
