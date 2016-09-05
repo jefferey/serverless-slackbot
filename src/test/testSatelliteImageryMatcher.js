@@ -41,4 +41,10 @@ describe('Regex tests', () => {
         expect(weatherMatchers.satelliteMatcher('testbot satellite for Morgantown')).to.be.null;
         expect(weatherMatchers.satelliteMatcher('testbot satellite WV'));
     });
+
+    it('should match another test city', () => {
+        testInputForCityStateMatch(
+            'testbot satellite for Dayton, OH', 'Dayton', 'OH'
+        );
+    });
 });
