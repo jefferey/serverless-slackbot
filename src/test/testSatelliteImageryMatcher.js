@@ -53,4 +53,10 @@ describe('Regex tests', () => {
             'testbot satellite image for Yellow Springs, OH', 'Yellow Springs', 'OH'
         );
     });
+
+    it('should match cities that three word names', () => {
+        testInputForCityStateMatch(
+            'testbot satellite image for Three Word Town, CO', 'Three Word Town', 'CO'
+        );
+    });
 });
