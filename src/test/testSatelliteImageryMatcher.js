@@ -47,4 +47,10 @@ describe('Regex tests', () => {
             'testbot satellite for Dayton, OH', 'Dayton', 'OH'
         );
     });
+
+    it('should match cities that include spaces', () => {
+        testInputForCityStateMatch(
+            'testbot satellite image for Yellow Springs, OH', 'Yellow Springs', 'OH'
+        );
+    });
 });
