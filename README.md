@@ -32,6 +32,9 @@ key in the `weatherApiKey` field.
 2. `npm install`
 3. `npm test`
 
+Logging is disabled during testing. To enable logging,
+run `SILENCE_BUNYAN=false npm test` instead of `npm test`.
+
 ## Deploying New Lambda Versions
 1. `cd src`
 2. `gulp`
