@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/"
+    "test": "./node_modules/mocha/bin/mocha test/unit/ | ./node_modules/bunyan/bin/bunyan -l fatal"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,9 @@
     "mockery": "^1.7.0",
     "sinon": "^1.17.5"
   },
-  "readme": "../README.md"
+  "readme": "../README.md",
+  "dependencies": {
+    "bunyan": "^1.8.1",
+    "request": "^2.74.0"
+  }
 }

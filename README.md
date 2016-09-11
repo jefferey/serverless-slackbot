@@ -1,4 +1,5 @@
 # Serverless Slackbot
+[![Build Status](https://travis-ci.org/rhussmann/serverless-slackbot.svg?branch=weather-support)](https://travis-ci.org/rhussmann/serverless-slackbot)
 
 ## Before You Started
 You'll need an AWS account. You can do a lot of cool stuff with AWS. Go get one.
@@ -11,6 +12,13 @@ installing the necessary dependencies. Once you've installed Homebrew,
 2. `brew install awscli`
 3. Run `aws configure` and enter your access key, secret access key, default
 region and default output (you can just go with the defaults for the last two)
+
+You'll need to setup a [Weather Underground](https://www.wunderground.com)
+developer account and get an API key. I've created this project using the free
+Cumulus developer level. This project currently fetches satellite imagery.
+
+Copy the file `src/config.sample.json` to `src/config.json` and enter your API
+key in the `weatherApiKey` field.
 
 ## Initial Infrastructure Deployment
 1. `cd terraform`
