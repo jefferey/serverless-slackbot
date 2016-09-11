@@ -1,7 +1,7 @@
 # Serverless Slackbot
 [![Build Status](https://travis-ci.org/rhussmann/serverless-slackbot.svg?branch=master)](https://travis-ci.org/rhussmann/serverless-slackbot)
 
-## Before You Started
+## Before You Get Started
 You'll need an AWS account. You can do a lot of cool stuff with AWS. Go get one.
 
 [Homebrew](https://brew.sh) is a great way to install all the necessary
