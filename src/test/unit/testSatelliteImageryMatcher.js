@@ -3,7 +3,7 @@
 const expect = require('chai').expect;
 const should = require('chai').should();
 
-const weatherMatchers = require('../weather-matchers');
+const weatherMatchers = require('../../weather-matchers');
 
 const trigger_word = 'testbot';
 const regex = new RegExp(`${trigger_word}\\s*:?\\s*(?:show)?\\s*satellite\\s*(?:image)?\\s*(?:for)?\\s*(Morgantown)\\s*(?:,)?\\s*(WV)\\s*$`);

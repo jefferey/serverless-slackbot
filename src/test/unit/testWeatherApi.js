@@ -13,7 +13,7 @@ describe('Weather API integration', () => {
             useCleanCache: true
         });
         mockery.registerMock('request', stub);
-        api = require('../weather-api.js')
+        api = require('../../weather-api.js')
     });
     after(function () {
         mockery.deregisterMock('request');

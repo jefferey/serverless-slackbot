@@ -12,7 +12,7 @@ describe('The chatbot', function() {
             useCleanCache: true
         });
         mockery.registerMock('request', stub);
-        chatbot = require('../simpleService.js');
+        chatbot = require('../../simpleService.js');
     });
     after(() => {
         mockery.deregisterMock('request');
