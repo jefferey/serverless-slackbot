@@ -6,3 +6,4 @@ node_js:
 before_script:
   - cd src
   - npm i
+  - cp config.sample.json config.json
