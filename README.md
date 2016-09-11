@@ -1,4 +1,5 @@
 # Serverless Slackbot
+[![Build Status](https://travis-ci.org/rhussmann/serverless-slackbot.svg?branch=weather-support)](https://travis-ci.org/rhussmann/serverless-slackbot)
 
 ## Before You Started
 You'll need an AWS account. You can do a lot of cool stuff with AWS. Go get one.
