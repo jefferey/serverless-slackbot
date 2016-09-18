@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/unit/"
+    "test": "./node_modules/mocha/bin/mocha test/unit/ | ./node_modules/bunyan/bin/bunyan -l fatal"
   },
   "repository": {
     "type": "git",
